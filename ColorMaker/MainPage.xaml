@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ColorMaker.MainPage">
+
+    <ContentPage.Resources>
+        <Color x:Key="Primary">#ab3527</Color>
+        <Color x:Key="Secondary">#775752</Color>
+        <Color x:Key="Tertiary">#705c2e</Color>
+    </ContentPage.Resources>
+
+    <Grid x:Name="Container" Padding="10, 10, 10, 10" BackgroundColor="Black">
+        <Border StrokeShape="RoundRectangle 40,40,40,40" Background="White">
+
+            <VerticalStackLayout Spacing="15" VerticalOptions="Center">
+                <Label FontSize="Large" Text="Color Maker"/>
+                <Label Text="Red Value:"/>
+                <Slider x:Name="sldRed" ThumbColor="{StaticResource Primary}" MinimumTrackColor="{StaticResource Tertiary}" MaximumTrackColor="{StaticResource Secondary}" ValueChanged="sld_ValueChanged"/>
+                <Label Text="Green Value:"/>
+                <Slider x:Name="sldGreen" ThumbColor="{StaticResource Primary}" MinimumTrackColor="{StaticResource Tertiary}" MaximumTrackColor="{StaticResource Secondary}" ValueChanged="sld_ValueChanged"/>
+                <Label Text="Blue Value:"/>
+                <Slider x:Name="sldBlue" ThumbColor="{StaticResource Primary}" MinimumTrackColor="{StaticResource Tertiary}" MaximumTrackColor="{StaticResource Secondary}" ValueChanged="sld_ValueChanged"/>
+
+                <Border StrokeShape="RoundRectangle 40,40,40,40">
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Label x:Name="lblHex"
+                               HorizontalTextAlignment="End"
+                               Text="HEX Value: #000000"
+                               VerticalOptions="Center"/>
+                        <ImageButton Margin="10,0,0,0"
+                               HeightRequest="25"
+                               Source="copy.png"
+                               VerticalOptions="Center"
+                               WidthRequest="25"
+                               Clicked="ImageButton_ClickedAsync"/>
+                    </HorizontalStackLayout>
+
+                </Border>
+                <Button x:Name="btnRandom" 
+                        BackgroundColor="{StaticResource Primary}"
+                        Text="Generate random color"
+                        Clicked="btnRandom_Clicked"/>
+
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+
+</ContentPage>
